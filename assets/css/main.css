@@ -56,6 +56,7 @@ html, body {
 }
 
 .click-event:hover {
+    user-select: none;
     cursor: pointer;
     opacity: 0.75;
 }
@@ -63,6 +64,7 @@ html, body {
 .click-event:active {
     transform: translateY(2px);
     transition: transform 0.1s;
+    user-select: none;
 }
 
 button {
@@ -75,6 +77,18 @@ button {
     font-size: 16px;
     color: white;
    
+}
+
+button:hover {
+    user-select: none;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+button:active {
+    transform: translateY(2px);
+    transition: transform 0.1s;
+    user-select: none;
 }
 
 button.filled {
