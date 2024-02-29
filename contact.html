@@ -37,27 +37,33 @@
                         class="nav-container"
                     >
                        <a
-                            id="index"
-                            href="/index.html"
+                            id="m-index"
+                            onclick="goTo('/index.html')"
                             class="click-event"
                        >
                             Ana Sayfa
                        </a>
                        <a
-                            id="aboutus"
-                            href="/aboutus.html"
-                            class="class"
+                            id="m-aboutus"
+                            onclick="goTo('/aboutus.html')"
+                            class="click-event"
                        >
                             Hakkımızda
                        </a>
                        <a
-                            id="contact"
-                            href="/contact.html"
+                            id="m-contact"
+                            onclick="goTo('/contact.html')"
                             class="click-event"
                        >
                             İletişim
                        </a>
                     </div>
+                    <div
+                    class="mobile-menu-button"
+                    onclick="toggleMenu()"
+                >
+                   <i class="fas fa-bars fa-xl"></i>
+                </div>
                 </div>
             </div>
         </div>
@@ -97,11 +103,57 @@
             <span id="copyright-text"></span>
 
         </div>
+        <div
+            class="side-menu-container"
+            id="side-menu"
+        >
+            <div class="side-menu-filter"
+            onclick="toggleMenu()"
+            ></div>
+            <div
+                class="side-menu-content-container"
+            >
+            <div
+                class="side-menu-header-container"
+            >
+                <span>
+                    Menü
+                </span>
+                <i 
+                    class="fas fa-x"
+                    onclick="toggleMenu()"
+                ></i>
+            </div>
+            <div class="seperator side-menu-seperator"></div>
+            <a
+                id="m-index"
+                href="/index.html"
+                class="click-event"
+            >
+                Ana Sayfa
+            </a>
+            <a
+                id="m-aboutus"
+                href="/aboutus.html"
+                class="click-event"
+            >
+                Hakkımızda
+            </a>
+            <a
+                id="m-contact"
+                href="/contact.html"
+                class="click-event"
+            >
+                İletişim
+            </a>
+            </div>
+        </div>
         <script
             src="assets/js/main.js"
         ></script>           
         <script
             src="./assets/js/menu.js"
         ></script>
+        <script src="https://kit.fontawesome.com/cacd7d94a3.js" crossorigin="anonymous"></script>
     </body>
 </html>
