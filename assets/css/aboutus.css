@@ -82,7 +82,7 @@
     color: white;
 }
     
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 950px) {
     .aboutus-image-line {
         flex-direction: column;
     }
