@@ -392,11 +392,11 @@ a:hover {
 }
 
 .footer-logo {
-    animation: logopng 1s infinite linear;
+    animation: logo-png 1s infinite linear;
     height: 50px;
 
 }
-@keyframes logopng {
+@keyframes logo-png {
     from {
     transform: rotateZ(0deg);
     } 
