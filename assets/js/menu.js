@@ -17,22 +17,3 @@ function toggleMenu() {
         sideMenu.classList.remove("isActive");
     }
 }
-
-function goTo(path) {
-    if(menuState) {
-        toggleMenu();
-        setTimeout(() => {
-            window.location.href = path;
-        }, 1000);
-    } else {
-        window.location.href = path;
-    }
-}
-
-window.addEventListener("scroll", () => {
-    if(window.scrollY > 0) {
-        foonterContainer.style.position = "relative";
-    } else {
-        foonterContainer.style.position = "fixed";   
-    }
-});
