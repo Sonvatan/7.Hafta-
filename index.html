@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>Son Savaş</title>
-        <link rel="icon" type="image7png" href="/assets/images/logo.png">
+        <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
         <link rel="stylesheet" href="./assets/css/main.css"/>
         <link rel="stylesheet" href="./assets/css/index.css"/>
     </head>
@@ -78,7 +78,7 @@
                 <div
                     class="welcome-content-container"
                 >
-                                    <span
+                    <span
                         class="welcome-title"
                     >
                         Türkiye Cumhuriyeti Devleti
@@ -112,7 +112,7 @@
             <span class="section-title">Türkiye Cumhuriyeti Devleti Nedir?</span>
             <div class="section-content-container">
                 <img
-                    src="assets/images/logo.png"
+                    src="./assets/images/logo.png"
                     class="what-is-Türkiye-image"
                 />
                 <p>
@@ -130,27 +130,8 @@
         </div>
         <div class="section-container">
             <span class="section-title">Devletin İçindeki Unsurlar</span> 
-            <div class="section-content-container">
-                <div class="broadcaster-component-container">
-                    <img
-                        src="assets/images/broadcasters/logo2.png"
-                        class="broadcaster-component-profile-photo"
-                    />
-                    <div class="broadcaster-component-content-container">
-                        <span>Vatanını Sevenler</span>  
-                        <span>Ana Unsurlar</span>                        
-                     </div>
-                 </div>
-                 <div class="broadcaster-component-container">
-                    <img
-                        src="assets/images/broadcasters/logo3.png"
-                        class="broadcaster-component-profile-photo"
-                    />
-                    <div class="broadcaster-component-content-container">
-                        <span>Vatanını Sevmeyenler</span>  
-                        <span>Hain Unsurlar</span>                        
-                     </div>
-                 </div>
+            <div id="broadcasters" class="section-content-container">
+                                
             </div>
         </div>
         <div 
@@ -158,7 +139,7 @@
              id="footer-container"
         >
             <img
-                src="assets/images/logo.png"
+                src="./assets/images/logo.png"
                 class="footer-logo"
             />
             <span id="copyright-text"></span>
@@ -209,11 +190,44 @@
             </div>
         </div>
         <script
-            src="assets/js/main.js"
+            src="./assets/js/main.js"
         ></script>           
         <script
             src="./assets/js/menu.js"
         ></script>
         <script src="https://kit.fontawesome.com/cacd7d94a3.js" crossorigin="anonymous"></script>
+        <script>
+                     
+            const broadcastersContainerObject = document.getElementById("broadcasters");  
+
+            const loadBroadcasters = (broadcasters) => {
+                broadcasters.forEach((item) => {
+                    broadcastersContainerObject.innerHTML += `<div class="broadcaster-component-container">
+                        <img
+                             src="${item.photoURL}"
+                            class="broadcaster-component-profile-photo"
+                    />
+                    <div class="broadcaster-component-content-container">
+                            <span>${item.fuulName}</span>  
+                            <span>${item.Job}</span>                        
+                     </div>
+                 </div>`;
+
+                });
+             
+              };
+                           
+            fetch("http://localhost?isFiltered=true")
+                 .then((res) => {
+                    return res.json();  
+              })
+                 .then((res) => {
+                    loadBroadcasters(res);
+              }) 
+                .catch((err) => {
+                  console.error(err); 
+              });
+       
+       </script>
     </body>
 </html>
