@@ -1,7 +1,7 @@
-<html>
+<<html>
     <head>
         <meta charset="utf-8"/>
-        <title>Son Savaş</title>
+        <title>Son Vatan</title>
         <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
         <link rel="stylesheet" href="./assets/css/main.css"/>
         <link rel="stylesheet" href="./assets/css/index.css"/>
@@ -130,9 +130,8 @@
         </div>
         <div class="section-container">
             <span class="section-title">Devletin İçindeki Unsurlar</span> 
-            <div id="broadcasters" class="section-content-container">
-                                
-            </div>
+            <div id="team" class="section-content-container">
+           </div>
         </div>
         <div 
              class="footer-container"
@@ -195,39 +194,36 @@
         <script
             src="./assets/js/menu.js"
         ></script>
-        <script src="https://kit.fontawesome.com/cacd7d94a3.js" crossorigin="anonymous"></script>
         <script>
-                     
-            const broadcastersContainerObject = document.getElementById("broadcasters");  
-
-            const loadBroadcasters = (broadcasters) => {
-                broadcasters.forEach((item) => {
-                    broadcastersContainerObject.innerHTML += `<div class="broadcaster-component-container">
-                        <img
-                             src="${item.photoURL}"
-                            class="broadcaster-component-profile-photo"
-                    />
-                    <div class="broadcaster-component-content-container">
-                            <span>${item.fuulName}</span>  
-                            <span>${item.Job}</span>                        
-                     </div>
-                 </div>`;
-
-                });
-             
-              };
-                           
-            fetch("http://localhost?isFiltered=true")
-                 .then((res) => {
+            fetch("http://127.0.0.1:3000/getTeam", {
+                "Access-Control-Allow-Origin": "*"
+            })
+                .then((res) => { 
                     return res.json();  
-              })
-                 .then((res) => {
-                    loadBroadcasters(res);
-              }) 
+                })
+                .then((res) => {
+                    const teamElement = document.getElementById("team");  
+                    res.payload.forEach((item) => {
+                        teamElement.innerHTML += `
+                             <div class="broadcaster-component-container">
+                                 <img
+                                     src="${item.profilePhotoURL}"
+                                     class="broadcaster-component-profile-photo"
+                                />
+                                     <div class="broadcaster-component-content-container">
+                                    <span>${item.fullName}</span>  
+                                    <span>${item.job}</span>                        
+                                </div>
+                            </div>
+                        `;
+                    });
+             
+                })
                 .catch((err) => {
-                  console.error(err); 
-              });
-       
+                    alert(err.message);
+                    console.error(err); 
+               });
        </script>
+       <script src="https://kit.fontawesome.com/cacd7d94a3.js" crossorigin="anonymous"></script>
     </body>
 </html>
